@@ -1,0 +1,14 @@
+.app-container { max-width: 1000px; margin: 0 auto; padding: 2rem; font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; min-height: 100vh; }
+.form-box { background: #2a2a2a; padding: 20px; border-radius: 10px; margin-bottom: 30px; border: 1px solid #444; }
+.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+input { padding: 12px; background: #333; border: 1px solid #555; color: white; border-radius: 6px; }
+.btn-main { background: #2563eb; color: white; padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+.btn-cancel { background: #555; margin-left: 10px; border: none; color: white; padding: 12px; border-radius: 6px; cursor: pointer; }
+.car-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.car-card { background: #2a2a2a; border: 1px solid #444; padding: 20px; border-radius: 12px; transition: 0.3s; }
+.car-card:hover { transform: translateY(-5px); border-color: #2563eb; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.id-tag { font-size: 0.8rem; color: #888; }
+.card-actions { margin-top: 20px; display: flex; gap: 15px; }
+.btn-edit { color: #fbbf24; background: none; border: none; cursor: pointer; font-weight: bold; }
+.btn-del { color: #ef4444; background: none; border: none; cursor: pointer; font-weight: bold; }
