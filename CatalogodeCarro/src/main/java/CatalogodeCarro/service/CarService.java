@@ -34,6 +34,7 @@ public class CarService {
         car.setWarranty(dto.warranty());
         car.setExteriorColor(dto.exteriorColor());
         car.setInteriorColor(dto.interiorColor());
+        car.setImageUrl(dto.imageUrl());
 
         return carResposity.save(car);
     }
@@ -54,6 +55,7 @@ public class CarService {
                 car.setWarranty(dto.warranty());
                 car.setExteriorColor(dto.exteriorColor());
                 car.setInteriorColor(dto.interiorColor());
+                car.setImageUrl(dto.imageUrl());
 
                 return carResposity.save(car);
         }).orElseThrow(() -> new RuntimeException("Car com ID " + id + " não existe no catálogo."));

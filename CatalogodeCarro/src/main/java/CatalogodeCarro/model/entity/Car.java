@@ -30,5 +30,6 @@ public class Car {
     private String doors;
     private String exteriorColor;
     private String interiorColor;
+    private String imageUrl;
 
 }

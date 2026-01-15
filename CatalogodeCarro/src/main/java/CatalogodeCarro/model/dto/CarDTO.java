@@ -1,5 +1,6 @@
 package CatalogodeCarro.model.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -45,7 +46,10 @@ public record CarDTO (
     String exteriorColor,
 
     @NotBlank(message = "O interiorColor é obrigatório")
-    String interiorColor
+    String interiorColor,
+
+    @Column(length = 1000)
+    String imageUrl
 
     ){
 }

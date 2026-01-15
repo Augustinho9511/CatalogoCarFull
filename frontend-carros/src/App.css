@@ -1,14 +1,148 @@
-.app-container { max-width: 1000px; margin: 0 auto; padding: 2rem; font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; min-height: 100vh; }
-.form-box { background: #2a2a2a; padding: 20px; border-radius: 10px; margin-bottom: 30px; border: 1px solid #444; }
-.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-input { padding: 12px; background: #333; border: 1px solid #555; color: white; border-radius: 6px; }
-.btn-main { background: #2563eb; color: white; padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
-.btn-cancel { background: #555; margin-left: 10px; border: none; color: white; padding: 12px; border-radius: 6px; cursor: pointer; }
-.car-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-.car-card { background: #2a2a2a; border: 1px solid #444; padding: 20px; border-radius: 12px; transition: 0.3s; }
-.car-card:hover { transform: translateY(-5px); border-color: #2563eb; }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-.id-tag { font-size: 0.8rem; color: #888; }
-.card-actions { margin-top: 20px; display: flex; gap: 15px; }
-.btn-edit { color: #fbbf24; background: none; border: none; cursor: pointer; font-weight: bold; }
-.btn-del { color: #ef4444; background: none; border: none; cursor: pointer; font-weight: bold; }
+/* RESET E VARIAVEIS */
+:root {
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --primary: #3b82f6;
+  --accent: #10b981;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border: #374151;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* LAYOUT PRINCIPAL */
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1000px; /* Limite de largura para não ficar muito esticado */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* HEADER */
+.app-header { text-align: center; margin-bottom: 1rem; }
+.app-header h1 { font-size: 2.5rem; margin: 0; background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* FORMULÁRIO */
+.form-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.form-card h2 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+.form-card h3 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; margin-top: 1.5rem; }
+
+/* Grid dos Inputs */
+.inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Estilo dos Campos */
+input, select {
+  background: #27272a;
+  border: 1px solid var(--border);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+input:focus, select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+.input-price { border-color: var(--accent); }
+
+/* Área da URL da Imagem */
+.image-input-section { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.img-preview { max-height: 150px; object-fit: contain; border-radius: 0.5rem; background: #000; }
+
+/* Botões do Form */
+.form-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+.btn-save { flex: 1; background: var(--primary); color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1rem; }
+.btn-save:hover { filter: brightness(1.1); }
+.btn-cancel { background: #4b5563; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; cursor: pointer; }
+
+/* GRID DE CARROS (CARTÕES) */
+.cars-list h2 { text-align: center; margin-bottom: 1.5rem; }
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CARTÃO DO CARRO */
+.car-card {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  overflow: hidden; /* Importante para a imagem não sair */
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.car-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+/* Imagem do Cartão */
+.card-image {
+  height: 200px;
+  position: relative;
+  background: #000;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Corta a imagem para caber perfeitamente */
+}
+
+/* Badges sobre a foto */
+.badge-condition {
+  position: absolute;
+  top: 10px; right: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+.bg-green { background: rgba(16, 185, 129, 0.9); }
+.bg-orange { background: rgba(245, 158, 11, 0.9); }
+
+/* Conteúdo do Cartão */
+.card-content { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1; }
+
+.card-header-info { display: flex; justify-content: space-between; align-items: center; }
+.badge-brand { background: #374151; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; color: #d1d5db; }
+.year-text { color: var(--text-muted); font-size: 0.9rem; }
+
+.car-card h3 { margin: 0.25rem 0; font-size: 1.25rem; }
+.price { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+
+.specs-row {
+  display: flex; gap: 10px; font-size: 0.85rem; color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem; margin-top: 0.5rem;
+}
+
+.card-actions { margin-top: auto; padding-top: 1rem; display: flex; gap: 0.5rem; }
+.btn-edit, .btn-del { flex: 1; padding: 0.5rem; border-radius: 0.5rem; cursor: pointer; border: 1px solid transparent; background: transparent; }
+.btn-edit { border-color: var(--primary); color: var(--primary); }
+.btn-edit:hover { background: var(--primary); color: white; }
+.btn-del { color: #ef4444; }
+.btn-del:hover { text-decoration: underline; }
