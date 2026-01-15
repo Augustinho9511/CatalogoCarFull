@@ -16,9 +16,19 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private double price;
     private String name;
-    private String mark;
+    private String make;
+    private String warranty;
     private int year;
     private int kilometragem;
+    private String condition;
+    private String serviceHistory;
+    private String fuelType;
+    private String transmission;
+    private String engine;
+    private String doors;
+    private String exteriorColor;
+    private String interiorColor;
 
 }

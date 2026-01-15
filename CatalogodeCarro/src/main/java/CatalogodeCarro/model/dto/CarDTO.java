@@ -9,13 +9,43 @@ public record CarDTO (
     String name,
 
     @NotBlank(message = "O mark é obrigatório")
-    String mark,
+    String make,
+
+    @NotNull(message = "O price é obrigatório")
+    double price,
 
     @NotNull(message = "O year é obrigatório")
     int year,
 
+    @NotBlank(message = "O warranty é obrigatório")
+    String warranty,
+
     @NotNull(message = "O km é obrigatório")
-    int kilometragem
+    int kilometragem,
+
+    @NotBlank(message = "O condition é obrigatório")
+    String condition,
+
+    @NotBlank(message = "O serviceHistory é obrigatório")
+    String serviceHistory,
+
+    @NotBlank(message = "O fuelType é obrigatório")
+    String fuelType,
+
+    @NotBlank(message = "O transmission é obrigatório")
+    String transmission,
+
+    @NotBlank(message = "O engine é obrigatório")
+    String engine,
+
+    @NotBlank(message = "O doors é obrigatório")
+    String doors,
+
+    @NotBlank(message = "O exteriorColor é obrigatório")
+    String exteriorColor,
+
+    @NotBlank(message = "O interiorColor é obrigatório")
+    String interiorColor
 
     ){
 }

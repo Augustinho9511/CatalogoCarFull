@@ -22,8 +22,18 @@ public class CarService {
         Car car = new Car();
         car.setName(dto.name());
         car.setYear(dto.year());
-        car.setMark(dto.mark());
+        car.setMake(dto.make());
         car.setKilometragem(dto.kilometragem());
+        car.setPrice(dto.price());
+        car.setCondition(dto.condition());
+        car.setDoors(dto.doors());
+        car.setEngine(dto.engine());
+        car.setFuelType(dto.fuelType());
+        car.setTransmission(dto.transmission());
+        car.setServiceHistory(dto.serviceHistory());
+        car.setWarranty(dto.warranty());
+        car.setExteriorColor(dto.exteriorColor());
+        car.setInteriorColor(dto.interiorColor());
 
         return carResposity.save(car);
     }
@@ -32,8 +42,18 @@ public class CarService {
         return carResposity.findById(id).map(car -> {
                 car.setName(dto.name());
                 car.setYear(dto.year());
-                car.setMark(dto.mark());
+                car.setMake(dto.make());
                 car.setKilometragem(dto.kilometragem());
+                car.setPrice(dto.price());
+                car.setCondition(dto.condition());
+                car.setDoors(dto.doors());
+                car.setEngine(dto.engine());
+                car.setFuelType(dto.fuelType());
+                car.setTransmission(dto.transmission());
+                car.setServiceHistory(dto.serviceHistory());
+                car.setWarranty(dto.warranty());
+                car.setExteriorColor(dto.exteriorColor());
+                car.setInteriorColor(dto.interiorColor());
 
                 return carResposity.save(car);
         }).orElseThrow(() -> new RuntimeException("Car com ID " + id + " não existe no catálogo."));
